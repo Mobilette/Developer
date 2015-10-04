@@ -26,28 +26,19 @@ function install_mobilette_git_hooks {
 	cp -r /tmp/mobilette-git-hooks/hooks/* ~/.git_hooks/
 }
 
-# Handle arguments
-
-if test "$#" -eq 0; then
-	setup_git_hooks
-elif test "$#" -eq 1; then
-	case "${1}" in
-	    --help )
-	        echo "Help please."
-	        ;;
-	    --git-hooks )
-			install_git_hooks
-			;;
-		--mobilette-git-hooks )
-			install_mobilette_git_hooks
-			;;
-	    * )
-			echo "Use --help to get more information."
-			;;
-	esac
-else
-	echo "Invalid number of arguments. Use --help to get more information."
-fi
-
-echo "[SUCCESS] Congratulation you are ready to use correctly git commit :)"
-echo "[NOTE] Do not forget to run git hooks --install in your projects."
+case "${1}" in
+    --help )
+        echo "Help please."
+        ;;
+    --git-hooks )
+		install_git_hooks
+		;;
+	--mobilette-git-hooks )
+		install_mobilette_git_hooks
+		;;
+    * )
+		setup_git_hooks
+		echo "[SUCCESS] Congratulation you are ready to use correctly git commit :)"
+		echo "[NOTE] Do not forget to run git hooks --install in your projects."
+		;;
+esac
