@@ -26,6 +26,10 @@ function setup_git_user_email {
 	git config --global user.email "${1}"
 }
 
+function setup_git_push_method {
+	git config --global push.default matching
+}
+
 function print_usage {
 	echo "[ERROR] Usage: ./git-config USER_NAME USER_EMAIL"
 }
@@ -42,6 +46,7 @@ case "${1}" in
 		setup_git_color
 		setup_git_user_name "${1}"
 		setup_git_user_email "${2}"
+		setup_git_push_method
 		echo "[SUCCESS] You are the best mobilette driver in the world and your name is ${1}!"
 		;;
 esac
