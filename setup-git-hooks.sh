@@ -12,7 +12,8 @@ function install_git_hooks {
 	    echo "[ERROR] git clone failed for git-hooks repository !"
 	    exit 1
 	fi
-	mv /tmp/git-hooks/git-hooks /usr/local/bin/
+	sudo mkdir /usr/local/bin/
+	sudo mv /tmp/git-hooks/git-hooks /usr/local/bin/
 }
 
 function install_mobilette_git_hooks {

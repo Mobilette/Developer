@@ -6,11 +6,11 @@ function restart_Xcode {
 }
 
 function setup_VIPER_Xcode_snippets {
-	git init
-	git remote add origin https://github.com/Mobilette/VIPER-Xcode-Snippets
-	git fetch
-	git checkout -t origin/master
-	git pull
+	sudo git init
+	sudo git remote add origin https://github.com/Mobilette/VIPER-Xcode-Snippets
+	sudo git fetch
+	sudo git checkout -t origin/master
+	sudo git pull
 }
 
 case "${1}" in
@@ -18,6 +18,7 @@ case "${1}" in
         echo "Help please."
         ;;
     * )
+		sudo mkdir ~/Library/Developer/Xcode/UserData/CodeSnippets
 		cd ~/Library/Developer/Xcode/UserData/CodeSnippets
 		setup_VIPER_Xcode_snippets
 		cd -
